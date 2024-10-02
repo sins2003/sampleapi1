@@ -19,56 +19,54 @@ class mainpage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SizedBox(
-        child: Obx(
-          () {
-            if (itmcontroller.isLoading.value) {
-              return Center(
-                child: CircularProgressIndicator(),
-              );
-            } else {
-              ListView.builder(
-                itemCount: itmcontroller.itemlList.length,
-                itemBuilder: (context, index) {
-                  return DataTable(columns: [
-                    DataColumn(
-                        label: Text(
-                      "Name",
-                      style:
-                          TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
-                    )),
-                    DataColumn(
-                        label: Text(
-                      "UID",
-                      style:
-                          TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
-                    )),
-                    DataColumn(
-                        label: Text(
-                      "Doc Type",
-                      style:
-                          TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
-                    )),
-                    DataColumn(
-                        label: Text(
-                      "Image",
-                      style:
-                          TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
-                    )),
-                  ], rows: [
-                    DataRow(cells: [
-                      DataCell(Text(itmcontroller.itemlList[index]["name"])),
-                      DataCell(Text(itmcontroller.itemlList[index]["uid"])),
-                      DataCell(Text(itmcontroller.itemlList[index]["docType"])),
-                      DataCell(Image(
-                          image: NetworkImage(
-                              itmcontroller.itemlList[index]["url"]))),
-                    ])
-                  ]);
-                },
-              );
-            }
-          },
-        ),
+        child: Obx(() {
+          if (itmcontroller.isLoading.value) {
+            return Center(
+              child: CircularProgressIndicator(),
+            );
+          } else {
+            return ListView.builder(
+              itemCount: itmcontroller.itemlList.length,
+              itemBuilder: (context, index) {
+                return DataTable(columns: [
+                  DataColumn(
+                      label: Text(
+                        "Name",
+                        style:
+                        TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+                      )),
+                  DataColumn(
+                      label: Text(
+                        "UID",
+                        style:
+                        TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+                      )),
+                  DataColumn(
+                      label: Text(
+                        "Doc Type",
+                        style:
+                        TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+                      )),
+                  DataColumn(
+                      label: Text(
+                        "Image",
+                        style:
+                        TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+                      )),
+                ], rows: [
+                  DataRow(cells: [
+                    DataCell(Text(itmcontroller.itemlList[index]["name"])),
+                    DataCell(Text(itmcontroller.itemlList[index]["uid"])),
+                    DataCell(Text(itmcontroller.itemlList[index]["docType"])),
+                    DataCell(Image(
+                        image: NetworkImage(
+                            itmcontroller.itemlList[index]["url"]))),
+                  ])
+                ]);
+              },
+            );
+          }
+        },),
       ),
     );
   }
