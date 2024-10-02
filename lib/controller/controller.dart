@@ -18,9 +18,11 @@ class TableControllerclass extends GetxController {
       isLoading(true);
       errorMessage('');
       final items = await Dioservice().getItems();
+      if (items != null) {
+        itemlList.value = items;
+      }
       itemlList.assignAll(items);
     } catch (e) {
-      errorMessage('Failed to load items');
       print('Error: $e');
     } finally {
       isLoading(false);
