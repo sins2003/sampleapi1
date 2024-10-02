@@ -5,13 +5,6 @@ import 'package:get/get_core/src/get_main.dart';
 
 import '../controller/controller.dart';
 
-void main() {
-  runApp(GetMaterialApp(
-    debugShowCheckedModeBanner: false,
-    home: mainpage(),
-  ));
-}
-
 class mainpage extends StatelessWidget {
   final TableControllerclass itmcontroller = Get.put(TableControllerclass());
 

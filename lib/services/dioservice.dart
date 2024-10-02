@@ -31,7 +31,7 @@ class Dioservice extends GetConnect {
         final List<dynamic> list = response.body['data']['list'];
         return list.map((json) => itemslist.fromJson(json)).toList();
       } else {
-        throw Exception('Failed to load gallery items');
+        throw Exception('Failed to load items');
       }
     } catch (e) {
       print('Error: $e');
